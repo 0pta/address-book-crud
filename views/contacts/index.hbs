@@ -1,0 +1,31 @@
+{{>nav}}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>
+					Address Book <small>ALL CONTACTS</small>
+				</h1>
+			</div>
+      {{#each contacts}}
+			<div class="row">
+				<div class="col-md-8">
+          <a href="/contacts/{{this.id}}">{{this.first_name}} {{this.last_name}}</a>
+          {{this.phone_number}}
+          {{this.email_address}}
+          <img src="{{this.image_url}}" alt="">
+          {{this.line_1}} {{this.line_2}}
+          {{this.city}}
+          {{this.zip}}
+				</div>
+				<div class="col-md-4">
+          <form class="#" action="/contacts/{{this.id}}?_method=DELETE" method="POST">
+            <input class="btn btn-default btn-sm" type="submit" name="delete" value="delete">
+          </form>
+				</div>
+			</div>
+      {{/each}}
+		</div>
+	</div>
+</div>
